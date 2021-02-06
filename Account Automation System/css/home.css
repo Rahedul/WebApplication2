@@ -1,0 +1,34 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    color: #ffffff;
+    text-align: center;
+    background-image: url(../images/versity1.jpg);
+    background-repeat: no-repeat;
+    background-size: 1920px 980px;
+}
+h1{
+    color: aquamarine;
+    background: #000000;
+    border: 5px solid;
+    border-radius: 15px;
+    margin: 250px 550px 25px;
+    padding: 5px;
+}
+a input[type="submit"]{
+    border: 5px solid #000000;
+    font-size: 16px;
+    border-radius: 15px;
+    background: #ffffff;
+    margin: 5px 25px;
+    padding: 10px 20px;
+}
+a input[type="submit"]:hover{
+    color: chartreuse;
+    border: 5px solid;
+    border-radius: 15px;
+    background: #000000;
+    margin: 5px 25px;
+    padding: 10px 30px;
+    cursor: pointer;
+}

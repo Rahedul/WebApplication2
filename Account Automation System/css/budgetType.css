@@ -1,0 +1,78 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    color: #ffffff;
+    text-align: center;
+    background-image: url(../images/versity1.jpg);
+    background-repeat: no-repeat;
+    background-size: 1920px 980px;
+}
+.header h2{
+    color:aqua;
+    border: 5px solid;
+    background: black;
+    padding: 5px;
+    margin: 150px 500px 10px; 
+}
+textarea{
+    padding: 5px;
+}
+.seleaction h2{
+    color: coral;
+    border: 5px solid;
+    background: black;
+    padding: 5px;
+    margin: 40px 500px 10px; 
+}
+.work, .service, .buying{
+    color: black;
+    background: white;
+    text-align: left;
+    border: 5px solid black;
+    border-radius: 30px;
+    padding: 5px;
+    margin: 10px 690px;
+}
+.work:hover, .service:hover, .buying:hover{
+    color:chartreuse;
+    background: black;
+    text-align: left;
+    border: 5px solid;
+    border-radius: 30px;
+    padding: 5px;
+    margin: 10px 690px;
+    cursor: pointer;
+}
+label:hover{
+    cursor: pointer;
+}
+.back input[type="submit"], .next input[type="submit"]{
+    color: black;
+    border: 5px solid white;
+    border-radius: 15px;
+    background: chartreuse;
+    padding: 5px 25px;
+    margin: 20px 70px 0;
+}
+.back input[type="submit"]{
+    background:chocolate; 
+        color:white;
+}
+.back input[type="submit"]:hover{
+    color: fuchsia;
+    border: 5px solid fuchsia;
+    border-radius: 15px;
+    background: black;
+    padding: 5px 25px;
+    margin: 20px 70px 0;
+    cursor: pointer;
+}
+.next input[type="submit"]:hover{
+    color: chartreuse;
+    border: 5px solid;
+    border-radius: 15px;
+    background: black;
+    padding: 5px 25px;
+    margin: 20px 70px 0;
+    cursor: pointer;
+}

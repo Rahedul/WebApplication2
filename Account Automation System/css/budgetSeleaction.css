@@ -1,0 +1,57 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    color: #ffffff;
+    text-align: center;
+    background-image: url(../images/versity1.jpg);
+    background-repeat: no-repeat;
+    background-size: 1920px 980px;
+}
+.header{
+    color: coral;
+    border: 5px solid;
+    background: black;
+    margin: 200px 600px 30px;
+    font-size: 18px;
+    padding: 10px;
+}
+.revenue, .development, .others{
+    color: black;
+    background: white;
+    text-align: left;
+    font-size: 18px;
+    border: 5px solid black;
+    border-radius: 30px;
+    padding: 5px;
+    margin: 10px 660px;
+}
+.revenue:hover, .development:hover, .others:hover{
+    color: chartreuse;
+    background: black;
+    text-align: left;
+    font-size: 20px;
+    border: 5px solid chartreuse;
+    border-radius: 30px;
+    padding: 5px;
+    margin: 10px 660px;
+    cursor: pointer;
+}
+label:hover{
+    cursor: pointer;
+}
+.submit input[type="submit"]{
+    color: black;
+    font-size: 15px;
+    background: white;
+    padding: 10px 15px;
+    margin-top: 30px;
+    border: 5px solid;
+    border-radius: 30px;
+}
+.submit input[type="submit"]:hover{
+    color: white;
+    font-size: 18px;
+    background: chartreuse;
+    border: 5px solid black;
+    cursor: pointer;
+}

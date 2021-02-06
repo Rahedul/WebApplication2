@@ -1,0 +1,104 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    color: #ffffff;
+    text-align: center;
+    background-image: url(../images/versity1.jpg);
+    background-repeat: no-repeat;
+    background-size: 1920px 980px;
+}
+h2{
+    margin: 90px 500px 15px;
+    padding: 5px;
+    border: 5px solid;
+    background: black;
+}
+h3 a{
+    color: coral;
+    display: block;
+    padding: 5px 30px;
+    border: 5px solid;
+    background: black;
+    text-decoration: none;
+    margin: 15px 550px;
+}
+h3 a:hover{
+    color:cyan;
+    text-decoration: none;
+}
+p{
+    color: black;
+    font-size: 15px;
+}
+.yes , .no{
+    color: black;
+    background: white;
+    text-align: left;
+    font-size: 18px;
+    border: 5px solid black;
+    border-radius: 30px;
+    padding: 5px;
+    margin: 10px 650px; 
+}
+.yes:hover{
+    color: chartreuse;
+    background: black;
+    text-align: left;
+    border: 5px solid;
+    cursor: pointer;
+}
+.no:hover{
+    color: red;
+    background: black;
+    text-align: left;
+    border: 5px solid;
+    cursor: pointer;
+}
+.yes label:hover, .no label:hover{
+    cursor: pointer;
+}
+.signature{
+    background: rgba(0, 0, 0, 30%);
+    opacity: inherit;
+    width: 350px;
+    float: left;
+    text-align: left;
+    padding: 15px;
+    margin-left: 150px;
+}
+.comment{
+    width: 500px;
+    height: 100px;
+    background: rgba(0, 0, 0, 30%);
+    text-align: center;
+    margin-left: 1000px;
+}
+.comment textarea{
+    padding: 5px;
+    margin: 0px 15px;
+}
+textarea{
+    padding: 5px;
+}
+.submit{
+    margin-top: 25px;
+}
+.submit input[type="submit"]{
+    color: white;
+    width: 10%;
+    text-align: center;
+    font-size: 18px;
+    background-color: #000000;
+    border: 5px solid #474747;
+    border-radius: 15px;
+    padding: 5px 20px;
+    margin: 10px;
+}
+.submit input[type="submit"]:hover{
+    color: chartreuse;
+    font-size: 18px;
+    border: 5px solid;
+    border-radius: 15px;
+    padding: 5px 20px;
+    cursor: pointer;
+}

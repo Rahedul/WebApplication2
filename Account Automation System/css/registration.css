@@ -1,0 +1,58 @@
+body{
+    color: #ffffff;
+    text-align: center;
+    background-image: url(../images/versity1.jpg);
+    background-repeat: no-repeat;
+    background-size: 1920px 980px;
+}
+h1{
+    color: coral;
+    border: 5px solid;
+    background-color: black;
+    padding: 10px;
+    margin: 200px 550px 20px;
+}
+.heading{
+    color:cyan;
+    background-color: black;
+    padding: 5px;
+    margin: 10px 630px;
+    border: 5px solid;
+    border-radius: 30px;
+}
+table{
+    background-color: black;
+    padding: 10px;
+    margin: 20px 500px;
+    text-align: center;
+}
+label{
+    float: right;
+    font-size: 18px;
+}
+.logIn{
+    background-color: black;
+    padding: 5px;
+    margin: 10px 700px;
+}
+.registration{
+    background-color: black;
+    padding: 5px;
+    margin: 10px 700px;
+}
+.submit a input[type="submit"]{
+    color: white;
+    font-size: 18px;
+    background-color: #000000;
+    border: 5px solid #474747;
+    border-radius: 15px;
+    padding: 5px 20px;
+}
+.submit a input[type="submit"]:hover{
+    color: chartreuse;
+    font-size: 18px;
+    border: 5px solid;
+    border-radius: 15px;
+    padding: 5px 20px;
+    cursor: pointer;
+}

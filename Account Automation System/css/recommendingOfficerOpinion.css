@@ -1,0 +1,100 @@
+body{
+    color: #ffffff;
+    text-align: center;
+    background-image: url(../images/versity1.jpg);
+    background-repeat: no-repeat;
+    background-size: 1920px 980px;
+}
+h2{
+    margin: 150px 500px 15px;
+    padding: 5px;
+    border: 5px solid;
+    background: black;
+}
+h3{
+    margin: 40px 600px 35px;
+}
+h3 a{
+    color: coral;
+    padding: 5px 60px;
+    border: 5px solid;
+    background: black;
+    text-decoration: none;
+}
+h3 a:hover{
+    color: blue;
+    text-decoration: none;
+}
+p{
+    color: black;
+    font-size: 15px;
+    background: rgba(255, 0, 153, 0.3);
+    padding: 5px;
+    margin: 0px 450px;
+}
+select:hover{
+    cursor:pointer;
+}
+.yes, .no{
+    margin: 10px 600px;
+    padding: 5px 15px;
+    background: black;
+    border: 5px solid;
+    border-radius: 30px;
+}
+.yes:hover{
+    color: chartreuse;
+    background: black;
+    border: 5px solid;
+    border-radius: 30px;
+    cursor:pointer;
+}
+.no:hover{
+    color: red;
+    background: black;
+    border: 5px solid;
+    border-radius: 30px;
+    cursor:pointer;
+}
+.fileUpload{
+    width: 100%;
+    box-sizing: border-box;
+}
+.signature{
+    background: rgba(0, 0, 0, 30%);
+    opacity: inherit;
+    width: 30%;
+    float: left;
+    text-align: left;
+    margin: 30px 5px 0px 90px;
+    padding: 15px;
+}
+.comment{
+    background: rgba(0, 0, 0, 30%);
+    opacity: inherit;
+    width: 30%;
+    float: left;
+    text-align: left;
+    margin: 30px 0px 0px 300px;
+    padding: 15px;
+}
+textarea{
+    padding: 5px;
+}
+.submit a input[type="submit"]{
+    color: white;
+    font-size: 18px;
+    background-color: #000000;
+    border: 5px solid #474747;
+    border-radius: 15px;
+    padding: 5px 20px;
+    margin-top: 40px;
+}
+.submit a input[type="submit"]:hover{
+    color: chartreuse;
+    font-size: 18px;
+    border: 5px solid;
+    border-radius: 15px;
+    padding: 5px 20px;
+    cursor: pointer;
+}

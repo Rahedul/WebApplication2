@@ -1,0 +1,89 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    color: #ffffff;
+    text-align: center;
+    background-image: url(../images/versity1.jpg);
+    background-repeat: no-repeat;
+    background-size: 1920px 980px;
+}
+.header h2{
+    color: aquamarine;
+    background: black;
+    border: 5px solid;
+    padding: 5px 15px;
+    margin: 150px 550px 25px;
+}
+.recommend, .others{
+    border: 5px solid;
+    background: black;
+    padding: 15px;
+    margin: 5px;
+    display: inline-block;
+    
+}
+.recommend:hover, .others:hover{
+    border: 5px solid chartreuse;
+    background: black;
+    padding: 15px;
+    cursor: pointer;
+}
+label{
+    cursor: pointer;
+}
+.footer h2{
+    color: aqua;
+    background: black;
+    border: 5px solid;
+    padding: 5px 15px;
+    margin: 25px 550px 20px;
+}
+.yes, .no{
+    background: black;
+    border: 5px solid white;
+    display: inline-block;
+    padding: 5px;
+}
+.no{
+    margin-left: 50px;
+}
+.yes:hover{
+    color: chartreuse;
+    border-color: chartreuse;
+    cursor: pointer;
+}
+.no:hover{
+    color: red;
+    border-color: red;
+    cursor: pointer;
+}
+.back input[type="submit"], .next input[type="submit"]{
+    color: black;
+    border: 5px solid white;
+    border-radius: 15px;
+    background: chartreuse;
+    padding: 5px 25px;
+    margin: 20px 70px 0;
+}
+.back input[type="submit"]{
+    background:chocolate; 
+        color:white;
+}
+.back input[type="submit"]:hover{
+    color: fuchsia;
+    border: 5px solid fuchsia;
+    border-radius: 15px;
+    background: black;
+    padding: 5px 25px;
+    margin: 20px 70px 0;
+    cursor: pointer;
+}
+.next input[type="submit"]:hover{
+    color: chartreuse;
+    border: 5px solid;
+    border-radius: 15px;
+    background: black;
+    padding: 5px 25px;
+    margin: 20px 70px 0;
+    cursor: pointer;
+}
