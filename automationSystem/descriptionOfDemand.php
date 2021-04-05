@@ -1,8 +1,20 @@
 <?php
-    include 'header.php';
     include 'user.php';
+    include 'header.php';
+    session::checksession();
 ?>
-
+<?php
+    $loginmgs = session::get("loginmgs");
+    if (isset($loginmgs)) {
+        echo $loginmgs;
+    }
+    session::set("loginmgs",NULL);
+?>
+<?php
+    if (isset($_GET['action']) && $_GET['action'] == "logout") {
+        session::distroy(); 
+    }
+?>
 <?php
     $db = mysqli_connect("localhost","root","","db_lr");
 
@@ -74,8 +86,14 @@
         </script>
 </head>
 <body>
-    <nav class="navbar navbar-light bg-light navbar-expand-sm">
-        <div class="container">
+<div class="container">
+    <h1>
+        <strong>Account</strong> Automation System
+    </h1>
+    <nav class="navbar navbar-light navbar-expand-sm" style="background-color: #e3f2fd;">
+        <div class="container-fluid container">
+            <a class="navbar-brand" href="https://just.edu.bd/"><img src="images/logo.png" alt="JUST logo" width="30" height="30" class="d-inline-block align-text-top">
+                            যবিপ্রবি</a>
             <ul class="navbar-nav">
                 <?php
                     $id = session::get("id");
@@ -83,10 +101,13 @@
                     if ($userlogin == true) {
                 ?>
                 <li class="nav-item">
+                    <a class="nav-link" href="home.php">হোম</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="profile.php?id=<?php echo $id; ?>">প্রোফাইল</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="budgetSeleaction.php">পূর্ববর্তী পৃষ্ঠা</a>
+                    <a class="nav-link" href="index.php">ইনডেক্স</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?action=logout">প্রস্থান</a>
@@ -100,6 +121,7 @@
             </ul>
         </div>
     </nav>
+</div>
     <div class="h4 text-center my-4">
             চাহিদার বিবারণী ছকঃ 
     </div>
@@ -134,6 +156,23 @@
                     <input type="submit" class="btn btn-success" name="submit" value="নিশ্চিত করুন">
                 </div>
             </form>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="budgetSeleaction.php" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="budgetSeleaction.php">1</a></li>
+                    <li class="page-item active"><a class="page-link" href="descriptionOfDemand.php">2</a></li>
+                    <li class="page-item"><a class="page-link" href="generalInformation.php">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="generalInformation.php" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     </body>
