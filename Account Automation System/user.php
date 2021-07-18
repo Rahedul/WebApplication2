@@ -152,18 +152,9 @@ class user{
 
         $chk_email = $this->emailCheck($email);
 
-        $sql = "SELECT * FROM tabel_user WHERE email = '$email'";
-        $res =  $conn->query($sql);
-        $row = $res->fetch_assoc();
-        $verification_status = $row['verification_status'];
 
         if ($email == "" or $pass == "") {
             $mgs = "<div class='alert alert-danger'><strong>Error!</strong>Field must not be Empty</div>";
-            return $mgs;
-        }
-
-        if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
-            $mgs = "<div class='alert alert-danger'><strong>Error!</strong>The email address is already Exist!</div>";
             return $mgs;
         }
 
@@ -172,6 +163,10 @@ class user{
             return $mgs;
         }
         
+        $sql = "SELECT * FROM tabel_user WHERE email = '$email'";
+        $res =  $conn->query($sql);
+        $row = $res->fetch_assoc();
+        $verification_status = $row['verification_status'];
         if ($verification_status == false) {
             $mgs = "<div class='alert alert-danger'><strong>Error!</strong> Please verify your email first.</div>";
             return $mgs;
@@ -187,7 +182,7 @@ class user{
             header("Location: index.php");
         }
         else{
-            $mgs = "<div class='alert alert-danger'><strong>Error!</strong> Email or password is invalid!</div>";
+            $mgs = "<div class='alert alert-danger'><strong>Error!</strong> Password is incorrect!</div>";
             return $mgs;
         }
     }
