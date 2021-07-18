@@ -1,4 +1,5 @@
 <?php
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     include_once 'session.php';
     include 'database.php';
     include ('smtp/PHPMailerAutoload.php');
@@ -15,17 +16,17 @@ class user{
         $email  = $data['email'];
         $mobile = $data['mobile'];
         $pass   = md5($data['pass']);
-        $verification_status = 0;
+        $verification_status = false;
 
         $chk_email = $this->emailCheck($email);
 
         if ($name == "" or $email == "" or $mobile == "" or $pass == "" ) {
-            $mgs = "<div class='alert alert-danger'><strong>Error!</strong>Field must not be Empty</div>";
+            $mgs = "<div class='alert alert-danger'><strong>Error!</strong> Field must not be Empty</div>";
             return $mgs;
         }
 
         if (strlen($name)<3) {
-            $mgs = "<div class='alert alert-danger'><strong>Error!</strong>User name is too Short!</div>";
+            $mgs = "<div class='alert alert-danger'><strong>Error!</strong> User name is too Short!</div>";
             return $mgs;
         }
 
@@ -58,57 +59,66 @@ class user{
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
             }
-            $sql = "SELECT id FROM tabel_user";
-            $result = mysqli_query($conn, $sql);
-            $id = 50;
-            if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) 
-                {
-                    $id++;
-                }
-                mysqli_close($conn);
-            }
 
-            $mailHtml = "Please confirm your registration by clicking the button bellow: <a href='http://localhost:8080/accountAutomationSystem/verification.php?id=$id'>http://localhost:8080/accountAutomationSystem/verification.php?id=$id</a>";
+            $sql = "SELECT * FROM tabel_user WHERE email = '$email'";
+            $res =  $conn->query($sql);
+            $row = $res->fetch_assoc();
+            $id = $row['id'];
+            $str = $row['id'] . $row['email'] . $row['name'];
+            $verification_id = hash('md5', $str);
+            $sql = "UPDATE tabel_user set verification_id='$verification_id' where id='$id'";
+            $conn->query($sql);
+            $conn->close();
+
+            $mailHtml = "Please confirm your registration by clicking the button bellow: <br><a href='http://localhost:8080/accountAutomationSystem/verification.php?verification_id=$verification_id'><input name='submit' class='btn btn-primary mt-4' type='submit' value='Verify your account'></a>";
             
             if($this->smtp_mailer($email, 'Account Varification', $mailHtml) == true)
             {
                 $msg = "<div class='alert alert-success'><strong>Success! </strong>We've sent you a confirmation email.</div>";
                 return $msg;
             }
+            else
+            {
+                return "Cannot send mail";
+            }
         }
         else{
-            $mgs = "<div class='alert alert-danger'><strong>Error!</strong> Sorry! There have been problem inserting your details!</div>";
-            return $mgs;
+            $msg = "<div class='alert alert-danger'><strong>Error!</strong> Sorry! There have been problem inserting your details!</div>";
+            return $msg;
         }
     }
 
-    public function smtp_mailer($to,$subject, $msg){
+    public function smtp_mailer($to, $subject, $msg){
         $mail = new PHPMailer(); 
-        $mail->SMTPDebug  = 0;
         $mail->IsSMTP(); 
+        $mail->SMTPDebug = 0;
         $mail->SMTPAuth = true; 
-        $mail->SMTPSecure = 'tls'; 
+        $mail->SMTPSecure = 'TLS'; 
         $mail->Host = "smtp.gmail.com";
         $mail->Port = 587; 
         $mail->IsHTML(true);
         $mail->CharSet = 'UTF-8';
         $mail->Username = "just.automation.18@gmail.com";
-        $mail->Password = "accountautomation@12345";
+        $mail->Password = "abcde12345edcba";
         $mail->SetFrom("just.automation.18@gmail.com");
         $mail->Subject = $subject;
-        $mail->Body =$msg;
+        $mail->Body = $msg;
         $mail->AddAddress($to);
         $mail->SMTPOptions=array('ssl'=>array(
             'verify_peer'=>false,
             'verify_peer_name'=>false,
             'allow_self_signed'=>false
         ));
+
         if(!$mail->Send()){
             return false;
         }else{
             return true;
         }
+    }
+    public function prepareData($conn, $data)
+    {
+        return mysqli_real_escape_string($conn, stripslashes(htmlspecialchars($data)));
     }
 
     public function emailCheck($email){
@@ -142,6 +152,11 @@ class user{
 
         $chk_email = $this->emailCheck($email);
 
+        $sql = "SELECT * FROM tabel_user WHERE email = '$email'";
+        $res =  $conn->query($sql);
+        $row = $res->fetch_assoc();
+        $verification_status = $row['verification_status'];
+
         if ($email == "" or $pass == "") {
             $mgs = "<div class='alert alert-danger'><strong>Error!</strong>Field must not be Empty</div>";
             return $mgs;
@@ -158,7 +173,7 @@ class user{
         }
         
         if ($verification_status == false) {
-            $mgs = "<div class='alert alert-danger'><strong>Error!</strong> Please varify your email first.</div>";
+            $mgs = "<div class='alert alert-danger'><strong>Error!</strong> Please verify your email first.</div>";
             return $mgs;
         }
 
@@ -172,7 +187,7 @@ class user{
             header("Location: index.php");
         }
         else{
-            $mgs = "<div class='alert alert-danger'><strong>Error!</strong>Data not found!</div>";
+            $mgs = "<div class='alert alert-danger'><strong>Error!</strong> Email or password is invalid!</div>";
             return $mgs;
         }
     }
